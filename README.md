@@ -1,4 +1,4 @@
-# asm-dom-boilerpalte
+# asm-dom-boilerplate
 
 A simple boilerplate to start using [asm-dom](https://github.com/mbasso/asm-dom) without configuration.
 This includes:
