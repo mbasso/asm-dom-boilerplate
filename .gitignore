@@ -1,0 +1,8 @@
+dist
+temp
+node_modules
+.cache
+.vscode
+*.log
+.DS_Store
+package-lock.json

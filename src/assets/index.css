@@ -1,0 +1,31 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    'Helvetica Neue', Arial, sans-serif;
+  height: 100%;
+  min-height: 100%;
+  min-width: 100%;
+  width: 100%;
+}
+
+.root {
+  height: 100%;
+  width: 100%;
+  color: #FFFFFF;
+  background-color: #607D8B;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 300%;
+}
+
+.button {
+  margin: 4px;
+  border-radius: 3px;
+  padding: 10px;
+  cursor: pointer;
+  text-transform: uppercase;
+  text-decoration: none !important;
+  user-select: none;
+}
