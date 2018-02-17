@@ -25,7 +25,7 @@ CFLAGS = \
 WASM_OPTIONS = \
 	-O3 \
 	--bind \
-	--memory-init-file 0 \
+	--memory-init-file 1 \
 	--llvm-lto 3 \
 	--llvm-opts 3 \
 	--js-opts 1 \
@@ -46,7 +46,7 @@ WASM_OPTIONS = \
 ASMJS_OPTIONS = \
 	-O3 \
 	--bind \
-	--memory-init-file 0 \
+	--memory-init-file 1 \
 	--llvm-lto 3 \
 	--llvm-opts 3 \
 	--js-opts 1 \
