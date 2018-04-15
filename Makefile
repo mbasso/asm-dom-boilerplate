@@ -30,8 +30,7 @@ WASM_OPTIONS = \
 	--llvm-opts 3 \
 	--js-opts 1 \
 	--closure 1 \
-	--pre-js glue/prefix.js \
-	--post-js glue/postfix.js \
+	-s MODULARIZE=1 \
 	-s ALLOW_MEMORY_GROWTH=1 \
 	-s AGGRESSIVE_VARIABLE_ELIMINATION=1 \
 	-s ABORTING_MALLOC=1 \
@@ -51,8 +50,7 @@ ASMJS_OPTIONS = \
 	--llvm-opts 3 \
 	--js-opts 1 \
 	--closure 1 \
-	--pre-js glue/prefix.js \
-	--post-js glue/postfix.js \
+	-s MODULARIZE=1 \
 	-s AGGRESSIVE_VARIABLE_ELIMINATION=1 \
 	-s ELIMINATE_DUPLICATE_FUNCTIONS=1 \
 	-s ABORTING_MALLOC=1 \
