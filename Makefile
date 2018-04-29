@@ -110,7 +110,6 @@ dist: dist/wasm dist/asmjs
 	npx cross-env NODE_ENV=production parcel build index.html --public-url /
 
 start: dist/wasm dist/asmjs
-	npx cross-env NODE_ENV=development parcel index.html
 
 $(SRCDIR)/%.cc: $(SRCDIR)/%.cpp
 	npx gccx $< -o $@
