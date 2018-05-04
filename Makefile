@@ -21,6 +21,12 @@ CFLAGS = \
 	-Wno-parentheses \
 	-Wno-format
 
+# this on top of MakeFile after CPPFLAGS
+START_PREREQUISITES = \
+	dist/wasm \
+	dist/asmjs
+
+
 # C++ => .wasm options
 WASM_OPTIONS = \
 	-O3 \
@@ -83,7 +89,7 @@ clean:
 install:
 	npm install
 
-$(BC): $(OBJS)
+$(BC): $(OBJS) $(FILES)
 	emcc \
 		$(CFLAGS) \
 		--bind \
@@ -109,7 +115,16 @@ dist/asmjs: $(BC)
 dist: dist/wasm dist/asmjs
 	npx cross-env NODE_ENV=production parcel build index.html --public-url /
 
-start: dist/wasm dist/asmjs
+# this replace the current "start" command
+# -p, -n and -c just add some colors and information about the commands runned by concurrently
+# I've set a timer of 1.5s by default
+start: $(START_PREREQUISITES)
+	npx concurrently \
+		-p "[{name}]" \
+		-n "Parcel,Make" \
+		-c "bgGreen.bold,bgBlue.bold" \
+		"npx cross-env NODE_ENV=development parcel index.html --open" \
+		"while true; do make -q $(START_PREREQUISITES) || make $(START_PREREQUISITES); sleep 1.5; done"
 
 $(SRCDIR)/%.cc: $(SRCDIR)/%.cpp
 	npx gccx $< -o $@
