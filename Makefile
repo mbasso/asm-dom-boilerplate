@@ -1,7 +1,8 @@
-# if you are using windows, please comment line 3 and uncomment line 4
+# if you are using windows, please comment line 3 and uncomment line 4 and 5
 SRCDIR := src
 SRCS := $(shell find $(SRCDIR) -name "*.cpp")
-#SRCS := $(shell FORFILES /P $(SRCDIR) /S /M *.cpp /C "CMD /C ECHO @relpath")
+#SRCS := $(patsubst "%",%,$(shell FORFILES /P $(SRCDIR) /S /M *.cpp /C "CMD /C ECHO @relpath"))
+#SRCS := $(subst \,/,$(SRCS:.\\%=$(SRCDIR)\\%))
 
 # additional headers to include
 HEADERS = \
