@@ -124,7 +124,7 @@ start: $(START_PREREQUISITES)
 		-n "Parcel,Make" \
 		-c "bgGreen.bold,bgBlue.bold" \
 		"npx cross-env NODE_ENV=development parcel index.html --open" \
-		"nodemon --exec 'make $(START_PREREQUISITES)'"
+		"nodemon --exec \"make $(START_PREREQUISITES)\""
 
 $(SRCDIR)/%.cc: $(SRCDIR)/%.cpp
 	npx gccx $< -o $@
