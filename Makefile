@@ -22,12 +22,6 @@ CFLAGS = \
 	-Wno-parentheses \
 	-Wno-format
 
-# this on top of MakeFile after CPPFLAGS
-START_PREREQUISITES = \
-	dist/wasm \
-	dist/asmjs
-
-
 # C++ => .wasm options
 WASM_OPTIONS = \
 	-O3 \
@@ -67,6 +61,10 @@ ASMJS_OPTIONS = \
 	-s EXPORTED_RUNTIME_METHODS=[\'UTF8ToString\']
 
 ####### internals #######
+
+START_PREREQUISITES = \
+	dist/wasm \
+	dist/asmjs
 
 OBJDIR := temp/o
 DEPDIR := temp/dep
@@ -116,9 +114,6 @@ dist/asmjs: $(BC)
 dist: dist/wasm dist/asmjs
 	npx cross-env NODE_ENV=production parcel build index.html --public-url /
 
-# this replace the current "start" command
-# -p, -n and -c just add some colors and information about the commands runned by concurrently
-# I've set a timer of 1.5s by default
 start: $(START_PREREQUISITES)
 	npx concurrently \
 		-p "[{name}]" \
