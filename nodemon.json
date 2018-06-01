@@ -1,0 +1,10 @@
+{
+	"restartable": "rs",
+	"ignore": [".git", "glue", "dist", ".cache", "temp", "node_modules/**/node_modules"],
+	"verbose": true,
+	"watch": ["src/"],
+	"env": {
+		"NODE_ENV": "development"
+	},
+	"ext": "cpp,h,js,json,css"
+}
