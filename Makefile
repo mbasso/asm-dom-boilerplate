@@ -31,6 +31,7 @@ WASM_OPTIONS = \
 	--llvm-opts 3 \
 	--js-opts 1 \
 	--closure 1 \
+	-s ENVIRONMENT=node \
 	-s MODULARIZE=1 \
 	-s ALLOW_MEMORY_GROWTH=1 \
 	-s AGGRESSIVE_VARIABLE_ELIMINATION=1 \
@@ -51,6 +52,7 @@ ASMJS_OPTIONS = \
 	--llvm-opts 3 \
 	--js-opts 1 \
 	--closure 1 \
+	-s ENVIRONMENT=node \
 	-s MODULARIZE=1 \
 	-s AGGRESSIVE_VARIABLE_ELIMINATION=1 \
 	-s ELIMINATE_DUPLICATE_FUNCTIONS=1 \
