@@ -30,7 +30,7 @@ WASM_OPTIONS = \
 	--llvm-lto 3 \
 	--llvm-opts 3 \
 	--js-opts 1 \
-	--closure 1 \
+	--closure 0 \
 	-s ENVIRONMENT=web \
 	-s MODULARIZE=1 \
 	-s ALLOW_MEMORY_GROWTH=1 \
@@ -51,7 +51,7 @@ ASMJS_OPTIONS = \
 	--llvm-lto 3 \
 	--llvm-opts 3 \
 	--js-opts 1 \
-	--closure 1 \
+	--closure 0 \
 	-s ENVIRONMENT=web \
 	-s MODULARIZE=1 \
 	-s AGGRESSIVE_VARIABLE_ELIMINATION=1 \
