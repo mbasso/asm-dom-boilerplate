@@ -39,6 +39,7 @@ npm install # or make install
 
 # if you are using windows, you have to make a little change to the Makefile in the root of the project, just open it and follow the instructions at the top
 
+make
 npm start # or make start
 ```
 
