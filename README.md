@@ -16,7 +16,6 @@ The boilerplate automatically compiles C++ code to WebAssembly and asm.js, the c
 - [npm](http://npmjs.com/)
 - [make](https://www.gnu.org/software/make/)
 - [emcc](http://webassembly.org/getting-started/developers-guide/)
-- [java](https://www.java.com)
 
 Please make sure to have `emcc` set as an environment variable and the lastest version of `node` to make parcel work. So, to validate the installation, please run the following commands:
 
@@ -25,7 +24,6 @@ node -v
 npm -v
 make -v
 emcc -v
-java -version
 ```
 
 ## Getting started
