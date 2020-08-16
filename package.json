@@ -6,7 +6,7 @@
 		"start": "make start"
 	},
 	"dependencies": {
-		"asm-dom": "0.6.3"
+		"asm-dom": "0.7.0"
 	},
 	"devDependencies": {
 		"autoprefixer": "7.2.3",
