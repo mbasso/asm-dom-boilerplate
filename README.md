@@ -5,7 +5,7 @@ This includes:
 
 - `asm-dom`
 - `CPX support: JSX like syntax in C++`
-- `parcel-bundler`
+- `parcel-bundler` (`npm i --save-dev parcel-bundler@1.12.3`)
 - `autoprefixer`
 
 The boilerplate automatically compiles C++ code to WebAssembly and asm.js, the client will dinamically require the first if supported, the second otherwise.

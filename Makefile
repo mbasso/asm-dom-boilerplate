@@ -30,7 +30,7 @@ WASM_OPTIONS = \
 	--llvm-lto 3 \
 	--llvm-opts 3 \
 	--js-opts 1 \
-	--closure 1 \
+	--closure 0 \
 	-s ENVIRONMENT=web \
 	-s MODULARIZE=1 \
 	-s ALLOW_MEMORY_GROWTH=1 \
@@ -41,7 +41,7 @@ WASM_OPTIONS = \
 	-s DISABLE_EXCEPTION_CATCHING=2 \
 	-s BINARYEN=1 \
 	-s EXPORTED_RUNTIME_METHODS=[\'UTF8ToString\'] \
-	-s BINARYEN_TRAP_MODE=\'allow\'
+	# -s BINARYEN_TRAP_MODE=\'allow\'
 
 # C++ => .asm.js options
 ASMJS_OPTIONS = \
@@ -51,7 +51,7 @@ ASMJS_OPTIONS = \
 	--llvm-lto 3 \
 	--llvm-opts 3 \
 	--js-opts 1 \
-	--closure 1 \
+	--closure 0 \
 	-s ENVIRONMENT=web \
 	-s MODULARIZE=1 \
 	-s AGGRESSIVE_VARIABLE_ELIMINATION=1 \
@@ -91,19 +91,19 @@ clean:
 install:
 	npm install
 
-$(BC): $(OBJS) $(FILES)
-	emcc \
+$(BC): $(FILES)
+	emcc -c \
 		$(CFLAGS) \
 		--bind \
 		$(INCLUDES) \
-		$(OBJS) \
 		$(FILES) \
 		-o $(BC)
 
-dist/wasm: $(BC)
+dist/wasm: $(OBJS) $(BC)
 	npx mkdirp dist/wasm
 	emcc \
 		$(WASM_OPTIONS) \
+		$(OBJS)
 		$(BC) \
 		-o dist/wasm/app.js
 
