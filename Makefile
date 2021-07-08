@@ -41,6 +41,7 @@ WASM_OPTIONS = \
 	-s DISABLE_EXCEPTION_CATCHING=2 \
 	-s BINARYEN=1 \
 	-s EXPORTED_RUNTIME_METHODS=[\'UTF8ToString\'] \
+	-s EXPORTED_FUNCTIONS=_main,___cxa_is_pointer_type,___cxa_can_catch \
 	# -s BINARYEN_TRAP_MODE=\'allow\'
 
 # C++ => .asm.js options
@@ -61,6 +62,7 @@ ASMJS_OPTIONS = \
 	-s NO_FILESYSTEM=1 \
 	-s DISABLE_EXCEPTION_CATCHING=2 \
 	-s EXPORTED_RUNTIME_METHODS=[\'UTF8ToString\'] \
+	-s EXPORTED_FUNCTIONS=___cxa_is_pointer_type,___cxa_can_catch \
 	-s WASM=0
 
 ####### internals #######
@@ -103,7 +105,7 @@ dist/wasm: $(OBJS) $(BC)
 	npx mkdirp dist/wasm
 	emcc \
 		$(WASM_OPTIONS) \
-		$(OBJS)
+		$(OBJS) \
 		$(BC) \
 		-o dist/wasm/app.js
 
