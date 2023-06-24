@@ -98,6 +98,7 @@ $(BC): $(FILES)
 		$(CFLAGS) \
 		$(INCLUDES) \
 		$(FILES) \
+    -emit-llvm \
 		-o $(BC)
 
 dist/wasm: $(OBJS) $(BC)
