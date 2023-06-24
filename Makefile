@@ -96,9 +96,9 @@ install:
 $(BC): $(FILES)
 	emcc -c \
 		$(CFLAGS) \
-		--bind \
 		$(INCLUDES) \
 		$(FILES) \
+    -emit-llvm \
 		-o $(BC)
 
 dist/wasm: $(OBJS) $(BC)
@@ -134,7 +134,6 @@ $(SRCDIR)/%.cc: $(SRCDIR)/%.cpp
 $(OBJDIR)/%.o: $(SRCDIR)/%.cc | $$(@D)
 	emcc \
 		$(CFLAGS) \
-		--bind \
 		$(CPPFLAGS) \
 		$(INCLUDES) \
 		-c $< \
