@@ -96,7 +96,6 @@ install:
 $(BC): $(FILES)
 	emcc -c \
 		$(CFLAGS) \
-		--bind \
 		$(INCLUDES) \
 		$(FILES) \
 		-o $(BC)
@@ -134,7 +133,6 @@ $(SRCDIR)/%.cc: $(SRCDIR)/%.cpp
 $(OBJDIR)/%.o: $(SRCDIR)/%.cc | $$(@D)
 	emcc \
 		$(CFLAGS) \
-		--bind \
 		$(CPPFLAGS) \
 		$(INCLUDES) \
 		-c $< \
